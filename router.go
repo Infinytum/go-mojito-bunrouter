@@ -13,16 +13,6 @@ import (
 	brouter "github.com/uptrace/bunrouter"
 )
 
-func init() {
-	_ = mojito.Register(func() mojito.Router {
-		return NewBunRouter()
-	}, true)
-
-	_ = mojito.RegisterNamed("bun", func() mojito.Router {
-		return NewBunRouter()
-	}, true)
-}
-
 type bunRouterRouter struct {
 	middlewares []interface{}
 	router      *brouter.CompatRouter
@@ -88,7 +78,7 @@ func (r *bunRouterRouter) WithMiddleware(handler interface{}) error {
 }
 
 // WithRoute will add a new route with the given RouteMethod to the router
-func (r *bunRouterRouter) WithRoute(method RouteMethod, path string, handler interface{}) error {
+func (r *bunRouterRouter) WithRoute(method mojito.RouteMethod, path string, handler interface{}) error {
 	r.Lock()
 	defer r.Unlock()
 
