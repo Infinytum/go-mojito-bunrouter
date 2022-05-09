@@ -4,7 +4,7 @@ go 1.18
 
 require (
 	github.com/infinytum/go-mojito v1.3.5
-	github.com/uptrace/bunrouter v1.0.14
+	github.com/uptrace/bunrouter v1.0.15
 )
 
 require (
